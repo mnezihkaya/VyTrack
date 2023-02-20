@@ -14,11 +14,5 @@ import org.junit.runner.RunWith;
         publish = false
 )
 
-
-
-
-
-
-
 public class CukesRunner {
 }
