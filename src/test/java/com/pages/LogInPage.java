@@ -1,5 +1,6 @@
 package com.pages;
 
+import com.Utilities.ConfigurationReader;
 import com.Utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -25,4 +26,11 @@ public class LogInPage {
 
     @FindBy(id="_submit")
     public static WebElement LogInButton;
+
+    public static void LogIn(String UserName,String Password){
+        Driver.getDriver().get(ConfigurationReader.getProperty("TestEnv"));
+        LogInPage.UserName.sendKeys(UserName);
+        LogInPage.UserName.sendKeys(Password);
+        LogInPage.LogInButton.click();
+    }
 }
