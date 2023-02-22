@@ -2,6 +2,7 @@ package com.Utilities;
 
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -13,48 +14,45 @@ import java.util.concurrent.TimeUnit;
 public class Driver {
     private Driver(){}
 
-    private static WebDriver driver;
+    private static InheritableThreadLocal<WebDriver> driverPool = new InheritableThreadLocal<>();
 
     public static WebDriver getDriver() {
-        try {
-            Thread.sleep(50);
-        } catch (InterruptedException e){
-            e.printStackTrace();
-        }
-        if (driver==null){
+        if (driverPool.get()==null){
+
             String browserType = ConfigurationReader.getProperty("browser");
+
             switch (browserType){
                 case "firefox":
                     WebDriverManager.firefoxdriver().setup();
-                    driver = new FirefoxDriver();
+                    driverPool.set(new FirefoxDriver());
                     break;
                 case "opera":
                     WebDriverManager.operadriver().setup();
-                    driver = new OperaDriver();
+                    driverPool.set(new OperaDriver());
                     break;
                 case "edge":
                     WebDriverManager.edgedriver().setup();
-                    driver = new EdgeDriver();
+                    driverPool.set(new EdgeDriver());
                     break;
                 case "safari":
                     WebDriverManager.safaridriver().setup();
-                    driver = new SafariDriver();
+                    driverPool.set(new SafariDriver());
                     break;
                 default:
                     WebDriverManager.chromedriver().setup();
-                    driver = new ChromeDriver();
+                    driverPool.set(new ChromeDriver());
             }
         }
-
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        return driver;
+        driverPool.get().manage().window().setSize(new Dimension(1920, 1080));
+        //driverPool.get().manage().window().maximize();
+        driverPool.get().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        return driverPool.get();
     }
 
     public static void closeDriver(){
-        if(driver!=null){
-            driver.quit();
-            driver=null;
+        if(driverPool.get()!=null){
+            driverPool.get().close();
+            driverPool.remove();
         }
     }
 }
