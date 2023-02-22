@@ -1,6 +1,5 @@
 package com.pages;
 
-import com.Utilities.ConfigurationReader;
 import com.Utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,29 +7,31 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LogInPage {
 
-
-    public LogInPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public LogInPage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
-    @FindBy(name="_username")
+
+    @FindBy(xpath = "//*[@id='prependedInput']")
     public static WebElement UserName;
 
-    @FindBy(name="_password")
+    @FindBy(xpath = "//*[@id='prependedInput2']")
     public static WebElement Password;
 
-    @FindBy(id="remember_me")
+    @FindBy(xpath = "//span[@class='custom-checkbox__icon']")
     public static WebElement CheckBoxRememberMeOnThisComputer;
 
-    @FindBy(xpath = "//a[text()=\"Forgot your password?\"]")
+    @FindBy(xpath = "//a[text()='Forgot your password?']")
     public static WebElement ForgotYourPassword;
 
-    @FindBy(id="_submit")
+    @FindBy(id = "_submit")
     public static WebElement LogInButton;
 
-    public static void LogIn(String UserName,String Password){
-        Driver.getDriver().get(ConfigurationReader.getProperty("TestEnv"));
-        LogInPage.UserName.sendKeys(UserName);
-        LogInPage.UserName.sendKeys(Password);
-        LogInPage.LogInButton.click();
-    }
+    @FindBy (xpath = "//li[@id=\"user-menu\"]/a")
+    public WebElement profileTab;
+
+    @FindBy (xpath = "//a[@class='no-hash']")
+    public WebElement logoutBtn;
+
+    @FindBy (xpath = "//div[@class='alert alert-error']/div")
+    public WebElement alertMessage;
 }
