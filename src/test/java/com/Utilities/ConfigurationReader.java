@@ -6,21 +6,24 @@ import java.util.Properties;
 
 public class ConfigurationReader {
 
-    private static Properties properties=new Properties();
+    private static Properties properties = new Properties();
 
     static {
-        FileInputStream File = null;
         try {
-            File = new FileInputStream("configuration.properties");
-            properties.load(File);
-            File.close();
+            // 2-We need to open the file in Java memory: FileInputStream
+            FileInputStream file = new FileInputStream("configuration.properties");
+            // 3-Load the properties object using FileInputStream object
+            properties.load(file);
+            // Close the file
+            file.close();
         } catch (IOException e) {
-            System.out.println("file is not found");
+            System.out.println("File not found in the ConfigurationReader class.");
             e.printStackTrace();
         }
-
     }
+
     public static String getProperty(String keyword){
         return properties.getProperty(keyword);
     }
+
 }

@@ -7,31 +7,30 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LogInPage {
 
-    public LogInPage() {
-        PageFactory.initElements(Driver.getDriver(), this);
+    public LogInPage(){
+        PageFactory.initElements(Driver.getDriver(),this);
     }
 
     @FindBy(xpath = "//*[@id='prependedInput']")
-    public static WebElement UserName;
+    public WebElement username;
 
     @FindBy(xpath = "//*[@id='prependedInput2']")
-    public static WebElement Password;
+    public WebElement password;
 
     @FindBy(xpath = "//span[@class='custom-checkbox__icon']")
-    public static WebElement CheckBoxRememberMeOnThisComputer;
-
-    @FindBy(xpath = "//a[text()='Forgot your password?']")
-    public static WebElement ForgotYourPassword;
+    public WebElement rememberMeCheckBox;
 
     @FindBy(id = "_submit")
-    public static WebElement LogInButton;
+    public WebElement logInButton;
 
-    @FindBy (xpath = "//li[@id=\"user-menu\"]/a")
-    public WebElement profileTab;
+    @FindBy(xpath = "//a[text()='Forgot your password?']")
+    public WebElement forgotYourPassword;
 
-    @FindBy (xpath = "//a[@class='no-hash']")
-    public WebElement logoutBtn;
+    public static void LogIn(String username,String password){
+        LogInPage logInPage=new LogInPage();
+        logInPage.username.sendKeys(username);
+        logInPage.password.sendKeys(password);
+        logInPage.logInButton.click();
+    }
 
-    @FindBy (xpath = "//div[@class='alert alert-error']/div")
-    public WebElement alertMessage;
 }
