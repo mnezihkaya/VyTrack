@@ -1,15 +1,35 @@
-Feature: Users should be able to successfully login to the Vytrack Page
+@Regression
+Feature: Vytrack login
+  User Story:
+  Users should be able to successfully login to the Vytrack Page
+  and land to the dash board
+
+  Accounts are: Drivers, Store Managers, Sales Managers
 
 
+  @LoginPositive
   Scenario Outline: User should successfully login with correct credentials
     Given user on the login page
-    When user enters "<UserName>" and user enters "<Password>"
+    When user enters '<username>' and user enters '<password>'
+    And user clicks the Login button
     Then user should see the dashboard
     Examples:
-      | UserName | Password    |
-      | user31   | UserUser123 |
+      | username        | password    |
+      | user31          | UserUser123 |
+      | user37          | UserUser123 |
+      | storemanager67  | UserUser123 |
+      | storemanager70  | UserUser123 |
+      | salesmanager125 | UserUser123 |
+      | salesmanager128 | UserUser123 |
 
 
-
-
-
+  Scenario Outline: User should not able to login with wrong credentials
+    Given user on the login page
+    When user enters "<username>" and user enters "<password>"
+    And user clicks the Login button
+    Then user should see warning message
+    Examples:
+      | username    | password    |
+      | user31       | user31      |
+      | UserUser123 | UserUser123 |
+      | gfg         | gf          |
