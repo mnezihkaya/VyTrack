@@ -1,16 +1,10 @@
-@Regression
-Feature: Vytrack login
-  User Story:
-  Users should be able to successfully login to the Vytrack Page
-  and land to the dash board
+@Smoke
+Feature: Users should be able to successfully login to the Vytrack Page
+  and land to the dashboard
 
-  Accounts are: Drivers, Store Managers, Sales Managers
-
-
-  @LoginPositive
   Scenario Outline: User should successfully login with correct credentials
     Given user on the login page
-    When user enters '<username>' and user enters '<password>'
+    When user enters "<username>" and user enters "<password>"
     And user clicks the Login button
     Then user should see the dashboard
     Examples:
@@ -29,7 +23,7 @@ Feature: Vytrack login
     And user clicks the Login button
     Then user should see warning message
     Examples:
-      | username    | password    |
-      | user31       | user31      |
-      | UserUser123 | UserUser123 |
-      | gfg         | gf          |
+      | username | password    |
+      | user13   | user13      |
+      | UserU    | UserUser123 |
+      | gfg      | gf          |

@@ -2,6 +2,7 @@ package com.pages;
 
 import com.Utilities.ConfigurationReader;
 import com.Utilities.Driver;
+import com.Utilities.Utilities;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -17,7 +18,7 @@ public class LogInPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    @FindBy(id = "prependedInput")
+    @FindBy(xpath = "//input[@id=\"prependedInput\"]")
     public WebElement username;
 
     @FindBy(id = "prependedInput2")
@@ -32,9 +33,17 @@ public class LogInPage {
     @FindBy(xpath = "//a[@href='/user/reset-request']")
     public WebElement forgotYourPassword;
 
-    @FindBy(xpath = "//a[@href='/user/logout']")
+    @FindBy(xpath = "//a[@class='no-hash']")
     public WebElement logOut;
 
+    @FindBy(xpath = "//div[@class='alert alert-error']/div")
+    public WebElement alertMessage;
+
+    @FindBy(xpath = "//li[@id='user-menu']/a")
+    public WebElement profileTab;
+
+    @FindBy(xpath = "//button[@type=\"button\"]")
+    public WebElement closeMessageButton;
 
     //overwrite Login method with different
     public static void login() {
@@ -58,6 +67,7 @@ public class LogInPage {
         wait.until(ExpectedConditions.visibilityOf(loginPage.logInButton));
         loginPage.logInButton.click();
 
+        Utilities.waitUntilLoaderMaskDisappear();
         // Verify login successful
 
     }
@@ -83,7 +93,7 @@ public class LogInPage {
         wait.until(ExpectedConditions.visibilityOf(loginPage.logInButton));
         loginPage.logInButton.click();
 
-        // Verify login successful
+        Utilities.waitUntilLoaderMaskDisappear();
 
     }
 
@@ -103,8 +113,67 @@ public class LogInPage {
         //click to login Button
         wait.until(ExpectedConditions.visibilityOf(logInpage.logInButton));
         logInpage.logInButton.click();
-        //verify login is successful
+
+
+        Utilities.waitUntilLoaderMaskDisappear();
     }
 
+    public static void loginAsDriver() {
+        LogInPage loginpage = new LogInPage();
+        //go to website
+        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
+
+        // pass username
+        loginpage.username.sendKeys(ConfigurationReader.getProperty("driver1"));
+
+        //pass password
+        loginpage.password.sendKeys(ConfigurationReader.getProperty("password"));
+
+        //click login button
+        loginpage.logInButton.click();
+
+        Utilities.waitUntilLoaderMaskDisappear();
+    }
+
+    public static void loginAsStoreManager() {
+        LogInPage loginpage = new LogInPage();
+        //go to website
+        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
+
+        // pass username
+        loginpage.username.sendKeys(ConfigurationReader.getProperty("storeManager1"));
+
+        //pass password
+        loginpage.password.sendKeys(ConfigurationReader.getProperty("password"));
+
+        //click login button
+        loginpage.logInButton.click();
+
+        Utilities.waitUntilLoaderMaskDisappear();
+    }
+
+    public static void loginAsSalesManager() {
+        LogInPage loginpage = new LogInPage();
+        //go to website
+        Driver.getDriver().get(ConfigurationReader.getProperty("env1"));
+
+        // pass username
+        loginpage.username.sendKeys(ConfigurationReader.getProperty("salesManager1"));
+
+        //pass password
+        loginpage.password.sendKeys(ConfigurationReader.getProperty("password"));
+
+        //click login button
+        loginpage.logInButton.click();
+
+        Utilities.waitUntilLoaderMaskDisappear();
+    }
+
+
+    public static void LogOut() {
+        LogInPage logInPage = new LogInPage();
+        logInPage.profileTab.click();
+        logInPage.logOut.click();
+    }
 
 }
