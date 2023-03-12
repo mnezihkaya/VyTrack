@@ -102,6 +102,12 @@ public class VytrackUtilities {
         }
     }
 
+    public static void hoverOver(WebElement element){
+        Actions actions=new Actions(Driver.getDriver());
+        Utilities.highlight(element);
+        actions.moveToElement(element).perform();
+    }
+
     public static void logout(){
         LoginPage loginpage = new LoginPage();
         //locate user's profile tab
