@@ -6,9 +6,8 @@ Feature: As a user, I want to learn how to use the Pinbar.
 
   AC2: users should see an image on the page.
   [in automation testing, just verify the image source.]
-  Expected source: /bundles/oronavigation/images/pinbar-location.jpg
 
-  Accounts are: Drivers, Store Managers, Sales Managers
+
 
   Scenario Outline: User learning using PinBar
     Given user '<username>' login to the Dashboard
