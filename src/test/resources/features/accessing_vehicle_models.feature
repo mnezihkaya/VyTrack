@@ -1,4 +1,4 @@
-Feature: CY19-67 / As a user, I want to view columns on the Vehicle models page.
+Feature:  As a user, I want to view columns on the Vehicle models page.
   AC #1: The store manager and sales manager should see 10 columns on the Vehicle Model page.
   Expected Column names:
   MODEL NAME, MAKE, CAN BE REQUESTED, CVVI, CO2 FEE (/MONTH), COST (DEPRECIATED),

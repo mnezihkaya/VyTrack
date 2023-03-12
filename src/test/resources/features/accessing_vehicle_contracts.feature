@@ -1,5 +1,5 @@
 @Regression @Smoke
-Feature: CY19-66 / As a user, I want to access to Vehicle contracts page.
+Feature: As a user, I want to access to Vehicle contracts page.
 
   AC1: Store managers and Sales managers access the Vehicle contracts page.
   Expected URL: https://qa1.vytrack.com/entity/Extend_Entity_VehicleContract
