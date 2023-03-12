@@ -1,10 +1,15 @@
-@Smoke
-Feature: Users should be able to successfully login to the Vytrack Page
-  and land to the dashboard
+@Regression
+Feature: Vytrack login (CY19-00)
+  User Story:
+  Users should be able to successfully login to the Vytrack Page
+  and land to the dash board
+
+  Accounts are: Drivers, Store Managers, Sales Managers
+
 
   Scenario Outline: User should successfully login with correct credentials
     Given user on the login page
-    When user enters "<username>" and user enters "<password>"
+    When user enters '<username>' and user enters '<password>'
     And user clicks the Login button
     Then user should see the dashboard
     Examples:
@@ -23,7 +28,12 @@ Feature: Users should be able to successfully login to the Vytrack Page
     And user clicks the Login button
     Then user should see warning message
     Examples:
-      | username | password    |
-      | user13   | user13      |
-      | UserU    | UserUser123 |
-      | gfg      | gf          |
+      | username    | password    |
+      | user31       | user31      |
+      | UserUser123 | UserUser123 |
+      | qwerty      | UserUser123 |
+      | UserUser123 | user31      |
+      | !33342      | admin       |
+      | admin       | admin       |
+      | user31      | gfgf        |
+      | gfg         | gf          |
