@@ -1,5 +1,5 @@
 @Regression
-Feature: Vytrack login (CY19-00)
+Feature: Vytrack login
   User Story:
   Users should be able to successfully login to the Vytrack Page
   and land to the dash board
