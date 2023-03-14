@@ -29,7 +29,7 @@ Feature:  As a user, I want to manage filters on the Vehicle Costs page.
     Given user '<username>' login to the Dashboard
     When user on Dashboard page
     And user navigates to "Fleet" module and clicks "Vehicle Costs"
-    And user click firs checkbox
+    And user click first checkbox
     Then user should see all the checkBoxes are checked
     Examples:
       | username        |
