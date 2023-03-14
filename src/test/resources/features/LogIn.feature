@@ -1,4 +1,4 @@
-@Regression
+
 Feature: Vytrack login
   User Story:
   Users should be able to successfully login to the Vytrack Page
