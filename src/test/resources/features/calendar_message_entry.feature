@@ -1,4 +1,4 @@
-@Regression @Smoke
+
 Feature: As a user, I want to write the “Description” when I create a calendar event.
 
   AC1: users should be able to write messages in the Description field on the calendar event page.

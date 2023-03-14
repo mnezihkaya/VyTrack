@@ -1,4 +1,4 @@
-@Regression @Smoke
+
 Feature:  As a user, I should be able to select any vehicle from the Vehicle page.
 
   AC #1: once the user launched to the Vehicle page, all the checkboxes should be unchecked

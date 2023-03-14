@@ -1,4 +1,4 @@
-@Regression @Smoke
+
 Feature: As a user, I want to view edit car info icons from the Vehicles page.
 
   AC #1: users should see “view, edit, delete” when they hover the mouse to the three dots “...”.

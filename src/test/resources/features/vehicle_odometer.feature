@@ -1,5 +1,5 @@
-@Regression @Smoke
-Feature: CY19-73 / As a user, I want to view car odometer info on the Vehicles Odometers page.
+
+Feature:  As a user, I want to view car odometer info on the Vehicles Odometers page.
 
   AC1: Store and Sales managers should see an error message “You do not have permission to perform this action.”
   when they click the “Vehicle Odometer” module.

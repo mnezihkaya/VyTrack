@@ -1,4 +1,4 @@
-@Regression @Smoke
+
 Feature: As a user, I should be accessing all the main modules of the app.
 
   AC #1: store and sales managers should view 8 module names.
@@ -8,7 +8,6 @@ Feature: As a user, I should be accessing all the main modules of the app.
 
   Accounts are: Drivers, Store Managers, Sales Managers
 
-  @Driver
   Scenario: Driver should see 4 main module names
     When driver on Dashboard page
     Then driver should see four main modules
@@ -18,7 +17,7 @@ Feature: As a user, I should be accessing all the main modules of the app.
       | System     |
 
 
-  @StoreManager
+
   Scenario: Store Manager should see 8 main module names
     When store manager on Dashboard page
     Then manager should see eight main modules
@@ -31,7 +30,7 @@ Feature: As a user, I should be accessing all the main modules of the app.
       | Reports & Segments |
       | System             |
 
-  @SalesManager
+
   Scenario: Sales Manager should see 8 main module names
     When sale manager on Dashboard page
     Then manager should see eight main modules

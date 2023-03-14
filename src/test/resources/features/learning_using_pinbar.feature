@@ -1,4 +1,4 @@
-@Regression @Smoke
+
 Feature: As a user, I want to learn how to use the Pinbar.
 
   AC1: when users click click the “Learn how to use this space” link on the homepage, users should see:

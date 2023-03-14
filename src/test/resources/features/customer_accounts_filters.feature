@@ -1,4 +1,4 @@
-@Regression @Smoke
+
 Feature:  As a user, I want to filter customers’ info on the Account page.
 
   AC1: managers should see 8 filter items on the Accounts page

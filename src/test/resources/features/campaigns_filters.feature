@@ -1,5 +1,5 @@
-@Regression @Smoke
-Feature: CY19-76 /  As a user, I want to manage filters on the Marketing page.
+
+Feature:   As a user, I want to manage filters on the Marketing page.
 
   AC #1: Store and sales managers should see all the five filter options are checked by default.
 

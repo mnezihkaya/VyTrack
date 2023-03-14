@@ -1,4 +1,4 @@
-@Regression @Smoke
+
 Feature: As a user, I want to create a recurring / repetitive calendar event.
 
   AC #1: user should see the number “1” by default.

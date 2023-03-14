@@ -1,4 +1,4 @@
-@Regression @Smoke
+
 Feature:  As a user, I want to manage filters on the Vehicle Costs page.
 
   AC #1: Users should see three columns on the Vehicle Costs page.

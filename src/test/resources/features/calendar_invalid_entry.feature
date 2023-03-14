@@ -1,4 +1,4 @@
-@Regression @Smoke
+
 Feature:  As a user, I should see error messages when entering an invalid integer into the calendar repeat day input box.
 
   AC : Users see error messages for entering invalid integers.
